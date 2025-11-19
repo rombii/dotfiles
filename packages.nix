@@ -1,6 +1,6 @@
 {pkgs, ...}:
 let
-  custom_sddm_theme = pkgs.sddm-astronaut.overrideAttrs(old: {
+  customSddmTheme = pkgs.sddm-astronaut.overrideAttrs(old: {
     installPhase = ''
       ${old.installPhase}
       chmod -R 777 $out/share/sddm/themes/sddm-astronaut-theme/Backgrounds
@@ -44,7 +44,7 @@ in
     bat
     manix
     pywal
-    custom_sddm_theme
+    customSddmTheme
     mpd-mpris
     gruvbox-plus-icons
     nwg-look
