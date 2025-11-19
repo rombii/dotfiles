@@ -76,6 +76,16 @@
             desc = "Go to tenth tab";
           }
         ];
+        autocmds = [
+          {
+            enable = true;
+            command = "highlight Pmenu guibg=NONE";
+            event = [ "VimEnter" ];
+            desc = "Making nvim-cmp have transparent background";
+          }
+        ];
+
+
         lsp.enable = true;
         statusline.lualine.enable = true;
         telescope = {
@@ -108,11 +118,8 @@
             enable = true;
           };
         };
-        theme = {
-          enable = true;
-          name = "gruvbox";
-          style = "dark";
-          transparent = true;
+        treesitter = {
+          context.enable = true;
         };
         autocomplete.nvim-cmp.enable = true;
         languages = {
@@ -133,8 +140,19 @@
           enable = true;
           theme = "dashboard";
         };
-        options.tabstop = 2;
-        options.shiftwidth = 2;
+
+
+        theme = {
+          enable = true;
+          name = "gruvbox";
+          style = "dark";
+          transparent = true;
+        };
+        options = {
+          tabstop = 2;
+          shiftwidth = 2;
+          pumblend = 0;
+        };
       };
     }; 
   };
