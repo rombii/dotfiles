@@ -1,0 +1,39 @@
+{ config, pkgs, ... }:
+let
+  configDir = "${./config}";
+  dirs = builtins.attrNames (builtins.readDir configDir);
+in
+{
+  home.username = "ibmorr";
+  home.homeDirectory = "/home/ibmorr";
+
+  home.stateVersion = "25.05";
+
+  programs.home-manager.enable = true;
+
+  home.file = 
+      (builtins.listToAttrs 
+        (map 
+          (dotfile: {
+            name = ".config/${dotfile}";
+            value = {
+              source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/config/${dotfile}";
+            };
+          }
+          ) 
+        dirs)
+      );
+
+  services = {
+    mpd = {
+      enable = true;
+      musicDirectory = "${config.home.homeDirectory}/muzika";
+      extraConfig = ''
+        audio_output {
+            type "pipewire"
+            name "pipewire output"
+        }
+      '';
+    };
+  };
+}
