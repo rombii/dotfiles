@@ -6,6 +6,6 @@ Clone this, copy hardware config from etc/nixos and run
 `sudo nixos-rebuild switch --flake .`
 
 
-Navidrome and mpd have scrobblers that need things like apikeys ets.
+Navidrome and mpd have scrobblers that need things like api-keys etc.
 
 Just look into services.nix and respective docs and you will be good.
