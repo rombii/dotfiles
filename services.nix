@@ -3,10 +3,10 @@ let
   customSddmTheme = pkgs.sddm-astronaut.overrideAttrs(old: {
     installPhase = ''
       ${old.installPhase}
-      chmod -R 777 $out/share/sddm/themes/sddm-astronaut-theme/Backgrounds
+      chmod -R 770 $out/share/sddm/themes/sddm-astronaut-theme/Backgrounds
       cp ${./assets/sddm_bg.png} $out/share/sddm/themes/sddm-astronaut-theme/Backgrounds/astronaut.png
         
-      chmod -R 777 $out/share/sddm/themes/sddm-astronaut-theme/Themes
+      chmod -R 770 $out/share/sddm/themes/sddm-astronaut-theme/Themes
       cp ${./assets/sddm_theme.conf} $out/share/sddm/themes/sddm-astronaut-theme/Themes/astronaut.conf
     '';
   });
