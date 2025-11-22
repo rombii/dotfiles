@@ -1,0 +1,5 @@
+backend = "wal"
+palette = "harddark16"
+
+[templates]
+kitty = { src='kitty.conf', dst='~/.config/kitty/colors.conf'}

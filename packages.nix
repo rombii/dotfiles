@@ -43,7 +43,7 @@ in
     rmpc
     bat
     manix
-    pywal
+    wallust
     customSddmTheme
     mpd-mpris
     gruvbox-plus-icons

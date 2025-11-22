@@ -11,6 +11,10 @@ in
 
   programs.home-manager.enable = true;
 
+  programs.bash = {
+    enable = true;
+  };
+
   home.file = 
       (builtins.listToAttrs 
         (map 
