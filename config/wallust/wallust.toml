@@ -1,5 +1,6 @@
 backend = "wal"
-palette = "harddark16"
+palette = "dark"
+check_contrast = true
 
 [templates]
 kitty = { src='kitty.conf', dst='~/.config/kitty/colors.conf'}
