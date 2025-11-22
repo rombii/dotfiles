@@ -13,6 +13,10 @@ in
 
   programs.bash = {
     enable = true;
+
+    shellAliases = {
+      update_pls = "sudo nix flake update --flake ${config.home.homeDirectory}/.config/nixos/.; sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/.config/nixos/.";
+    };
   };
 
   home.file = 

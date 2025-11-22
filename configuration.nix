@@ -87,10 +87,6 @@
     EDITOR = "nvim";
   };
 
-  environment.shellAliases = {
-    update_pls = "sudo nix flake update --flake ${config.users.users.ibmorr.home}/.config/nixos/.; sudo nixos-rebuild switch --flake ${config.users.users.ibmorr.home}/.config/nixos/.";
-  };
-
   fonts.packages = with pkgs; [
     font-awesome
     nerd-fonts.iosevka
