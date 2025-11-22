@@ -7,28 +7,28 @@
         keymaps = [
           {
             key = "<leader>1";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":1tabnext<CR>";
             silent = true;
             desc = "Go to first tab";
           }
           {
             key = "<leader>2";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":2tabnext<CR>";
             silent = true;
             desc = "Go to second tab";
           }
           {
             key = "<leader>3";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":3tabnext<CR>";
             silent = true;
             desc = "Go to third tab";
           }
           {
             key = "<leader>4";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":4tabnext<CR>";
             silent = true;
             desc = "Go to fourth tab";
@@ -42,35 +42,35 @@
           }
           {
             key = "<leader>6";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":6tabnext<CR>";
             silent = true;
             desc = "Go to sixth tab";
           }
           {
             key = "<leader>7";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":7tabnext<CR>";
             silent = true;
             desc = "Go to seventh tab";
           }
           {
             key = "<leader>8";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":8tabnext<CR>";
             silent = true;
             desc = "Go to eighth tab";
           }
           {
             key = "<leader>9";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":9tabnext<CR>";
             silent = true;
             desc = "Go to nineth tab";
           }
           {
             key = "<leader>10";
-            mode = ["n"];
+            mode = ["n"]; 
             action = ":10tabnext<CR>";
             silent = true;
             desc = "Go to tenth tab";
@@ -110,8 +110,9 @@
           nvim-autopairs.enable = true;
         };
         utility = {
-          oil-nvim.enable = true;
-          smart-splits.enable = true;
+          oil-nvim = {
+            enable = true;
+          };
         };
         navigation = {
           harpoon = {
