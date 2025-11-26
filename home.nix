@@ -7,9 +7,10 @@ in
   home.username = "ibmorr";
   home.homeDirectory = "/home/ibmorr";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   programs.home-manager.enable = true;
+  stylix.enableReleaseChecks = false;
 
   programs.bash = {
     enable = true;
