@@ -121,7 +121,7 @@
     dedicatedServer.openFirewall = true;
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
   security.rtkit.enable = true;
 
   # Fix for permission issues with navidrome
