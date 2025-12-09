@@ -15,10 +15,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs2505 = {
+      url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    };
   };
 
   outputs =
-    {self, nixpkgs, nvf, stylix, home-manager, ... }: {
+    {self, nixpkgs, nvf, stylix, home-manager, nixpkgs2505, ... }: {
       packages."x86_64-linux".default = 
       (nvf.lib.neovimConfiguration {
          pkgs = nixpkgs.legacyPackages."x86_64-linux";
@@ -26,6 +29,14 @@
       }).neovim;
 
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = let
+          system = "x86_64-linux";
+        in {
+          pkgs-old = import nixpkgs2505 {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        };
         modules = [ 
           nvf.nixosModules.default
           stylix.nixosModules.default

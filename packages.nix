@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, pkgs-old, ...}:
 let
   customSddmTheme = pkgs.sddm-astronaut.overrideAttrs(old: {
     installPhase = ''
@@ -10,6 +10,11 @@ let
       cp ${./assets/sddm_theme.conf} $out/share/sddm/themes/sddm-astronaut-theme/Themes/astronaut.conf
     '';
   });
+  dotnet_env = with pkgs.dotnetCorePackages;
+    combinePackages [
+      sdk_8_0_3xx
+    ];
+  dotnet-ef-old = pkgs-old.dotnet-ef;
 in
 {
   environment.systemPackages = with pkgs; [
@@ -57,8 +62,8 @@ in
     virt-manager
     unrar-free
     jetbrains.rider
-    dotnetCorePackages.sdk_8_0_3xx
-    dotnet-ef
+    dotnet_env
+    dotnet-ef-old
     krita
     unzip
     mpv
@@ -73,5 +78,7 @@ in
     ctpv
     chafa
     zig
+    warpinator
   ];
+
 }

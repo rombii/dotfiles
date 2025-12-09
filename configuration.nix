@@ -38,7 +38,7 @@
 
   networking.networkmanager.enable = true;
 
-  networking.firewall.allowedTCPPorts = [ 2234 4533 ];
+  networking.firewall.allowedTCPPorts = [ 2234 4533 42000 42001 ];
 
   time.timeZone = "Europe/Warsaw";
 
