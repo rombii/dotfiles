@@ -18,10 +18,13 @@
     nixpkgs2505 = {
       url = "github:nixos/nixpkgs?ref=nixos-25.05";
     };
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+    };
   };
 
   outputs =
-    {self, nixpkgs, nvf, stylix, home-manager, nixpkgs2505, ... }: {
+    {self, nixpkgs, nvf, stylix, home-manager, nixpkgs2505, ... }@inputs: {
       packages."x86_64-linux".default = 
       (nvf.lib.neovimConfiguration {
          pkgs = nixpkgs.legacyPackages."x86_64-linux";
@@ -36,6 +39,7 @@
             inherit system;
             config.allowUnfree = true;
           };
+          inherit inputs;
         };
         modules = [ 
           nvf.nixosModules.default

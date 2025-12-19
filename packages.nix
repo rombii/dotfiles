@@ -1,4 +1,4 @@
-{pkgs, pkgs-old, ...}:
+{pkgs, pkgs-old, inputs, ...}:
 let
   customSddmTheme = pkgs.sddm-astronaut.overrideAttrs(old: {
     installPhase = ''
@@ -15,6 +15,8 @@ let
       sdk_8_0_3xx
     ];
   dotnet-ef-old = pkgs-old.dotnet-ef;
+  osu = inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable;
+  osu-mime = inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-mime; 
 in
 {
   environment.systemPackages = with pkgs; [
@@ -79,6 +81,9 @@ in
     chafa
     zig
     warpinator
+    osu-lazer-bin
+    osu
+    osu-mime
   ];
 
 }

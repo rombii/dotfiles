@@ -15,7 +15,10 @@
     download-buffer-size = 524288000;
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" ];
+    substituters = ["https://nix-gaming.cachix.org"];
+    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
   };
+
   systemd.services.nix-daemon.environment.TMPDIR = "/var/tmp";
 
   nix.gc = {
@@ -97,11 +100,6 @@
     noto-fonts-cjk-sans
   ];
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  }; 
-
   hardware = {
     graphics.enable = true;
     graphics.enable32Bit = true;
@@ -114,23 +112,36 @@
     opentabletdriver.enable = true;
   };
 
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
   system.stateVersion = "25.11";
   security.rtkit.enable = true;
 
   # Fix for permission issues with navidrome
   systemd.services.navidrome.serviceConfig.ProtectHome = lib.mkForce false;
-  programs.virt-manager.enable = true;
-  programs.starship.enable = true;
-  programs.gamemode.enable = true;
-  
-  
+
+  programs = {
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      package = pkgs.steam.override {
+        extraPkgs = (pkgs: with pkgs; [
+          gamemode
+        ]);
+      };
+    };
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+    virt-manager.enable = true;
+    starship.enable = true;
+    gamemode.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+  };
   
   virtualisation = {
     libvirtd.enable = true;

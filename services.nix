@@ -41,11 +41,11 @@ in
         "context.properties" = {
           "default.clock.rate" = 48000;
           "defautlt.allowed-rates" = [ 48000 44100 ];
-          "default.clock.quantum" = 512;
-          "default.clock.min-quantum" = 512;
-          "default.clock.max-quantum" = 512;
+          "default.clock.quantum" = 510;
+          "default.clock.min-quantum" = 510;
+          "default.clock.max-quantum" = 550;
         };
-      };
+      }; 
     };
     navidrome = {
       enable = true;
