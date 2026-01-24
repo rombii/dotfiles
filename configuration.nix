@@ -41,7 +41,7 @@
 
   networking.networkmanager.enable = true;
 
-  networking.firewall.allowedTCPPorts = [ 2234 4533 42000 42001 ];
+  networking.firewall.allowedTCPPorts = [ 2234 4533 42000 42001 44212 ];
 
   time.timeZone = "Europe/Warsaw";
 
@@ -66,7 +66,7 @@
   users.users.ibmorr = {
     isNormalUser = true;
     description = "ibmorr";
-    extraGroups = [ "networkmanager" "wheel" "docker" "podman" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "podman" "gamemode" ];
     packages = with pkgs; [];
     home = "/home/ibmorr";
   };

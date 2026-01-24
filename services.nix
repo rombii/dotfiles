@@ -1,4 +1,4 @@
-{pkgs, lib, config, ...}:
+{pkgs, lib, config, inputs, ...}:
 let
   customSddmTheme = pkgs.sddm-astronaut.overrideAttrs(old: {
     installPhase = ''
@@ -41,9 +41,9 @@ in
         "context.properties" = {
           "default.clock.rate" = 48000;
           "defautlt.allowed-rates" = [ 48000 44100 ];
-          "default.clock.quantum" = 510;
-          "default.clock.min-quantum" = 510;
-          "default.clock.max-quantum" = 550;
+          "default.clock.quantum" = 512;
+          "default.clock.min-quantum" = 512;
+          "default.clock.max-quantum" = 1024;
         };
       }; 
     };
@@ -84,6 +84,9 @@ in
           passwordFile = "${config.users.users.ibmorr.home}/.config/secrets/last_fm/pass";
         };
       };
+    };
+    flatpak = {
+      enable = true;
     };
   }; 
 }

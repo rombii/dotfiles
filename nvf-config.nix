@@ -119,12 +119,8 @@
             enable = true;
           };
         };
-        treesitter = {
-          context.enable = true;
-        };
         autocomplete.nvim-cmp.enable = true;
         languages = {
-          enableTreesitter = true;
           nix = {
             enable = true;
             lsp.enable = true;
@@ -134,7 +130,6 @@
             enable = true;
             dap.enable = true;
             lsp.enable = true;
-            treesitter.enable = true;
           };
         };
         dashboard.alpha = {

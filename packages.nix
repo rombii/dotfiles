@@ -12,7 +12,7 @@ let
   });
   dotnet_env = with pkgs.dotnetCorePackages;
     combinePackages [
-      sdk_8_0_3xx
+      sdk_8_0_1xx
     ];
   dotnet-ef-old = pkgs-old.dotnet-ef;
   osu = inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable;
@@ -33,7 +33,6 @@ in
     floorp-bin
     progress
     wineWowPackages.stable
-    lutris
     hyprpaper
     winetricks
     protontricks
@@ -63,11 +62,13 @@ in
     xdg-desktop-portal-hyprland
     virt-manager
     unrar-free
-    jetbrains.rider
-    dotnet_env
-    dotnet-ef-old
+    #jetbrains.rider
+    #dotnet_env
+    #dotnet-ef-old
     krita
+    zip
     unzip
+    p7zip
     mpv
     ani-cli
     ffmpeg-full
@@ -81,9 +82,9 @@ in
     chafa
     zig
     warpinator
-    osu-lazer-bin
     osu
     osu-mime
+    blender
+    jdk
   ];
-
 }

@@ -18,6 +18,7 @@ in
     shellAliases = {
       update_pls = "sudo nix flake update --flake ${config.home.homeDirectory}/.config/nixos/.; sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/.config/nixos/.";
       nwd = "cd ${config.home.homeDirectory}/.config/nixos";
+      hytale = "gamemoderun flatpak run com.hypixel.HytaleLauncher";
     };
   };
 
